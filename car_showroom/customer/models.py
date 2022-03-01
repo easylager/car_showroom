@@ -18,8 +18,8 @@ class Customer(models.Model):
     phone_number = models.CharField(validators=[phone_regex], max_length=17, blank=True)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
 
-    def make_offer(self, car, max_price):
-        pass
+    def __str__(self):
+        return self.name
 
 
 class CustomerHistory(models.Model):
