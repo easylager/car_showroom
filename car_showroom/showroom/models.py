@@ -6,7 +6,7 @@ from core.models import abstract_models
 
 
 class Location(models.Model):
-    country = models.CharField(max_length=100)
+    country = CountryField()
     city = models.CharField(max_length=100)
     street = models.CharField(max_length=100)
 
@@ -27,7 +27,8 @@ class Showroom(models.Model):
 
 
 class ShowroomDiscount(abstract_models.AbstractDiscount):
-    showroom = models.ForeignKey(Showroom, on_delete=models.CASCADE)
+    showroom = models.ForeignKey(Showroom,
+                                 on_delete=models.CASCADE)
 
 
 class ShowroomHistory(abstract_models.AbstractHistory):

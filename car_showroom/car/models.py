@@ -12,7 +12,7 @@ class Car(models.Model):
     CAR_TYPE_CHOICES = [
         ('Sedan', 'Sedan'),
         ('Coupe', 'Coupe'),
-        ('Crossover', 'Crossover')
+        ('Crossover', 'Crossover'),
     ]
     manufacturer = models.ForeignKey(CarManufacturer, on_delete=models.CASCADE)
     car_type = models.CharField(max_length=100, choices=CAR_TYPE_CHOICES)

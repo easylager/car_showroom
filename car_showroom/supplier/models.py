@@ -10,6 +10,9 @@ class Supplier(abstract_models.IsActive, abstract_models.CreatedAt):
     cars = models.ManyToManyField(Car, null=True, blank=True)
     showrooms = models.ManyToManyField(Showroom, null=True, blank=True)
 
+    def __str__(self):
+        return self.name
+
 
 class SupplierDiscount(abstract_models.AbstractDiscount):
     supplier = models.ForeignKey(Supplier, on_delete=models.CASCADE)
