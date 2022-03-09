@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django_countries',
     'rest_framework',
     'debug_toolbar',
+    'rest_framework_simplejwt'
 
 
 ]
@@ -121,9 +122,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.TokenAuthentication',
-        (...)
-    ),
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
 }
 
 # Internationalization

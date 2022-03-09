@@ -10,7 +10,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('car', '0001_initial'),
-        ('customer', '0001_initial'),
+        (u'customer', '0001_initial'),
     ]
 
     operations = [
