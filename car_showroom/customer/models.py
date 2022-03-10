@@ -12,7 +12,7 @@ User = get_user_model()
 class Customer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     balance = models.IntegerField()
-    username = models.CharField(max_length=200, null=True)
+    name = models.CharField(max_length=200, null=True)
     email = models.EmailField(max_length=200, null=True)
     phone_regex = RegexValidator(regex='^(\+\d{1,3})?,?\s?\d{8,13}', message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
     phone_number = models.CharField(validators=[phone_regex], max_length=17, blank=True)

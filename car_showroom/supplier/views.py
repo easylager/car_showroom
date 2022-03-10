@@ -1,7 +1,9 @@
-from rest_framework import viewsets, mixins, status
+from rest_framework import viewsets, mixins, filters
 from supplier.serializers import SupplierCreateUpdateSerializer, SupplierListRetrieveSerializer, \
     SupplierDiscountListRetrieveSerializer, SupplierDiscountCreateUpdateSerializer
 from supplier.models import Supplier, SupplierDiscount
+from supplier.services import SupplierFilter
+from django_filters.rest_framework import DjangoFilterBackend
 
 
 class SupplierViewSet(
@@ -15,7 +17,13 @@ class SupplierViewSet(
         'retrieve': SupplierListRetrieveSerializer,
     }
     default_serializer_class = SupplierCreateUpdateSerializer
-    queryset = Supplier.objects.prefetch_related('cars', 'showrooms').all()
+
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter]
+    filterset_class = SupplierFilter
+    search_fields = ['cars']
+
+
+    queryset = Supplier.objects.all()
 
     def get_serializer_class(self):
         return self.serializers.get(self.action, self.default_serializer_class)

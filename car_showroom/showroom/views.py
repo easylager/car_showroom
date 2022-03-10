@@ -1,7 +1,9 @@
-from rest_framework import viewsets, mixins
+from rest_framework import viewsets, mixins, filters
 from showroom.serializers import ShowroomCreateSerializer, ShowroomUpdateSerializer, ShowroomListRetrieveSerializer
 from showroom.serializers import LocationSerializer, ShowroomDiscountListRetrieveSerializer, ShowroomDiscountCreateUpdateSerializer
 from showroom.models import Showroom, ShowroomDiscount, Location
+from django_filters.rest_framework import DjangoFilterBackend
+from showroom.services import ShowroomFilter
 
 
 class LocationViewSet(mixins.ListModelMixin,
@@ -23,6 +25,10 @@ class ShowroomViewSet(mixins.ListModelMixin,
         'update': ShowroomUpdateSerializer
     }
     default_serializer_class = ShowroomListRetrieveSerializer
+
+    filter_backends = [DjangoFilterBackend, filters.OrderingFilter]
+    filterset_class = ShowroomFilter
+    ordering_fields = ['balance']
 
     def get_serializer_class(self):
         return self.serializers.get(self.action, self.default_serializer_class)
