@@ -6,7 +6,7 @@ from core.models import abstract_models
 
 
 class Location(models.Model):
-    country = models.CharField(max_length=100)
+    country = CountryField()
     city = models.CharField(max_length=100)
     street = models.CharField(max_length=100)
 
