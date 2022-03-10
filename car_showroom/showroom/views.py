@@ -1,0 +1,53 @@
+from rest_framework import viewsets, mixins, filters
+from showroom.serializers import ShowroomCreateSerializer, ShowroomUpdateSerializer, ShowroomListRetrieveSerializer
+from showroom.serializers import LocationSerializer, ShowroomDiscountListRetrieveSerializer, ShowroomDiscountCreateUpdateSerializer
+from showroom.models import Showroom, ShowroomDiscount, Location
+from django_filters.rest_framework import DjangoFilterBackend
+from showroom.services import ShowroomFilter
+
+
+class LocationViewSet(mixins.ListModelMixin,
+                             mixins.CreateModelMixin,
+                             mixins.RetrieveModelMixin,
+                             mixins.UpdateModelMixin,
+                             viewsets.GenericViewSet):
+    serializer_class = LocationSerializer
+    queryset = Location.objects.all()
+
+
+class ShowroomViewSet(mixins.ListModelMixin,
+                             mixins.CreateModelMixin,
+                             mixins.RetrieveModelMixin,
+                             mixins.UpdateModelMixin,
+                             viewsets.GenericViewSet):
+    serializers = {
+        'create': ShowroomCreateSerializer,
+        'update': ShowroomUpdateSerializer
+    }
+    default_serializer_class = ShowroomListRetrieveSerializer
+
+    filter_backends = [DjangoFilterBackend, filters.OrderingFilter]
+    filterset_class = ShowroomFilter
+    ordering_fields = ['balance']
+
+    def get_serializer_class(self):
+        return self.serializers.get(self.action, self.default_serializer_class)
+
+    queryset = Showroom.objects.prefetch_related('cars', 'customers').all()
+
+
+class ShowroomDiscountViewSet(mixins.ListModelMixin,
+                             mixins.CreateModelMixin,
+                             mixins.RetrieveModelMixin,
+                             mixins.UpdateModelMixin,
+                             viewsets.GenericViewSet):
+    serializers = {
+        'list': ShowroomDiscountListRetrieveSerializer,
+        'retrieve': ShowroomDiscountListRetrieveSerializer
+    }
+    default_serializer_class = ShowroomDiscountCreateUpdateSerializer
+
+    def get_serializer_class(self):
+        return self.serializers.get(self.action, self.default_serializer_class)
+
+    queryset = ShowroomDiscount.objects.select_related('showroom').all()
