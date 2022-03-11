@@ -152,6 +152,10 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
+CELERY_BROKER_URL = "redis://redis:6379"
+CELERY_RESULT_BACKEND = "redis://redis:6379"
+
 if DEBUG:
     import os  # only if you haven't already imported this
     import socket  # only if you haven't already imported this
