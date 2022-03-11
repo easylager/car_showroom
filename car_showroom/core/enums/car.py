@@ -2,10 +2,10 @@ import enum
 
 
 class CarType(enum.Enum):
-    Sedan = 'Sedan'
-    Coupe = 'Coupe'
-    Crossover = 'Crossover'
-    Hatchback = 'Hatchback'
+    SEDAN = 'Sedan'
+    COUPE = 'Coupe'
+    CROSSOVER = 'Crossover'
+    HATCHBACK = 'Hatchback'
 
     @classmethod
     def choices(cls):

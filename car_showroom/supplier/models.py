@@ -18,6 +18,5 @@ class SupplierDiscount(abstract_models.AbstractDiscount):
     supplier = models.ForeignKey(Supplier, on_delete=models.CASCADE)
 
 
-class SupplierHistory(abstract_models.AbstractHistory):
-    supplier = models.ForeignKey(Supplier, on_delete=models.CASCADE)
+
 
