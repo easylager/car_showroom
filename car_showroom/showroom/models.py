@@ -1,12 +1,12 @@
 from django.db import models
 from django_countries.fields import CountryField
 from car.models import Car
-
+from supplier.models import Supplier
 from core.models import abstract_models
 
 
 class Location(models.Model):
-    country = models.CharField(max_length=100)
+    country = CountryField()
     city = models.CharField(max_length=100)
     street = models.CharField(max_length=100)
 
@@ -32,3 +32,4 @@ class ShowroomDiscount(abstract_models.AbstractDiscount):
 
 class ShowroomHistory(abstract_models.AbstractHistory):
     showroom = models.ForeignKey(Showroom, on_delete=models.CASCADE)
+    supplier = models.ForeignKey(Supplier, on_delete=models.CASCADE)
