@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import Supplier, SupplierDiscount, SupplierHistory
+from .models import Supplier, SupplierDiscount
 
 
-@admin.register(SupplierDiscount, SupplierHistory)
+@admin.register(SupplierDiscount)
 class PersonAdmin(admin.ModelAdmin):
     pass
 
