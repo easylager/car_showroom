@@ -1,0 +1,15 @@
+Index: car_showroom/car/views.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from django.shortcuts import render\n\n# Create your views here.\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/car_showroom/car/views.py b/car_showroom/car/views.py
+--- a/car_showroom/car/views.py	
++++ b/car_showroom/car/views.py	
+@@ -1,3 +1,4 @@
+ from django.shortcuts import render
+ 
+ # Create your views here.
++

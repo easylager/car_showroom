@@ -1,0 +1,49 @@
+Index: docker-compose.yml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>version: '3.8'\n\nservices:\n  web:\n    build: ./car_showroom\n    command: python manage.py runserver 0.0.0.0:8000\n    volumes:\n      - ./car_showroom/:/usr/src/app/\n    ports:\n      - 8000:8000\n    env_file:\n      - ./car_showroom/.env.dev\n    depends_on:\n      - db\n\n  db:\n    image: postgres:13.0-alpine\n    volumes:\n      - postgres_data:/var/lib/postgresql/data/\n    ports:\n      - 5432:5432\n    env_file:\n      - ./car_showroom/.env.dev\n\n\nvolumes:\n  postgres_data:\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/docker-compose.yml b/docker-compose.yml
+--- a/docker-compose.yml	
++++ b/docker-compose.yml	
+@@ -11,7 +11,7 @@
+     env_file:
+       - ./car_showroom/.env.dev
+     depends_on:
+-      - db
++      - redis
+ 
+   db:
+     image: postgres:13.0-alpine
+@@ -21,7 +21,28 @@
+       - 5432:5432
+     env_file:
+       - ./car_showroom/.env.dev
+-
++  redis:
++    image: redis:alpine
++  celery:
++    build: ./car_showroom
++    command: celery -A config worker -l info
++    volumes:
++      - ./car_showroom/:/usr/src/app/
++    env_file:
++      - ./car_showroom/.env.dev
++    depends_on:
++      - db
++      - redis
++      - web
++  celery-beat:
++      build: ./car_showroom
++      command: celery -A config beat -l info
++      volumes:
++        - ./car_showroom/:/usr/src/app/
++      env_file:
++        - ./car_showroom/.env.dev
++      depends_on:
++        - redis
+ 
+ volumes:
+   postgres_data:

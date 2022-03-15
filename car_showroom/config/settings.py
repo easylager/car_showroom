@@ -156,6 +156,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CELERY_BROKER_URL = "redis://redis:6379"
 CELERY_RESULT_BACKEND = "redis://redis:6379"
 
+
+'''CELERY_BEAT_SCHEDULE = {
+    'first_task': {
+        'task': 'showroom.tasks.my_second_task',
+        'schedule': 15.0,
+    }
+}'''
+
+
 if DEBUG:
     import os  # only if you haven't already imported this
     import socket  # only if you haven't already imported this
