@@ -2,8 +2,7 @@ from django.contrib.auth import get_user_model
 from django.db import models
 from core.models import abstract_models
 from core.validators.car import phone_belarus_validator
-from car.models import Car
-from showroom.models import Showroom
+
 
 User = get_user_model()
 
@@ -24,4 +23,4 @@ class Customer(models.Model):
 
 class CustomerHistory(abstract_models.AbstractHistory):
     customer = models.ForeignKey('customer.Customer', on_delete=models.CASCADE)
-    showroom = models.ForeignKey(Showroom, on_delete=models.CASCADE)
+    showroom = models.ForeignKey('showroom.Showroom', on_delete=models.CASCADE)
