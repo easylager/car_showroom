@@ -1,7 +1,6 @@
 from django.db import models
 from django_countries.fields import CountryField
 from car.models import Car
-
 from core.models import abstract_models
 
 
@@ -24,6 +23,10 @@ class Showroom(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class ShowroomOrder(abstract_models.AbstractOrder):
+    showroom = models.ForeignKey('showroom.Showroom', on_delete=models.CASCADE)
 
 
 class ShowroomDiscount(abstract_models.AbstractDiscount):

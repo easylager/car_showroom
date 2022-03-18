@@ -157,12 +157,12 @@ CELERY_BROKER_URL = "redis://redis:6379"
 CELERY_RESULT_BACKEND = "redis://redis:6379"
 
 
-'''CELERY_BEAT_SCHEDULE = {
+CELERY_BEAT_SCHEDULE = {
     'first_task': {
-        'task': 'showroom.tasks.my_second_task',
+        'task': 'showroom.tasks.check_cars',
         'schedule': 15.0,
     }
-}'''
+}
 
 
 if DEBUG:

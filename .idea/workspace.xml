@@ -1,71 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c857854-f381-4926-a2c6-7da1561ce1bb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/car_showroom/.env.dev" beforeDir="false" afterPath="$PROJECT_DIR$/car_showroom/.env.dev" afterDir="false" />
+    <list default="true" id="3897b102-1fd5-4221-bafe-0aa7dfb0d2df" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/car_showroom/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/car_showroom/config/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/car_showroom/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/car_showroom/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/car_showroom/core/models/abstract_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/car_showroom/core/models/abstract_models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/car_showroom/customer/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/car_showroom/customer/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/car_showroom/customer/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/car_showroom/customer/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/car_showroom/customer/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/car_showroom/customer/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/car_showroom/customer/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/car_showroom/customer/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/car_showroom/customer/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/car_showroom/customer/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/car_showroom/showroom/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/car_showroom/showroom/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/car_showroom/showroom/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/car_showroom/showroom/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/car_showroom/showroom/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/car_showroom/showroom/tasks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/car_showroom/supplier/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/car_showroom/supplier/serializers.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Python Script" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
-    <favorite-branches>
-      <branch-storage>
-        <map>
-          <entry type="LOCAL">
-            <value>
-              <list>
-                <branch-info repo="$PROJECT_DIR$" source="feature/create-api" />
-              </list>
-            </value>
-          </entry>
-        </map>
-      </branch-storage>
-    </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature/create_filters" />
+        <entry key="$PROJECT_DIR$" value="feature/writing-docker" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitSEFilterConfiguration">
-    <file-type-list>
-      <filtered-out-file-type name="LOCAL_BRANCH" />
-      <filtered-out-file-type name="REMOTE_BRANCH" />
-      <filtered-out-file-type name="TAG" />
-      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
-    </file-type-list>
-  </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/car_showroom/manage.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/car_showroom/Dockerfile" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/car_showroom/.env.dev" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/car_showroom/supplier/services.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/car_showroom/car/models.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/car_showroom/core/models/abstract_models.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/docker-compose.yml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/car_showroom/config/__init__.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/car_showroom/requirements.txt" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/car_showroom/supplier/models.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/car_showroom/config/settings.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/car_showroom/supplier/admin.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/.gitignore" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="25jmdp1aqRb0xRwNODypSGnMszx" />
+  <component name="ProjectId" id="26SlKbwYwzwS55VKHAatFWj7DJ4" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -74,52 +50,17 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../showroom" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/car_showroom/config" />
-      <recent name="$PROJECT_DIR$/car_showroom" />
-    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="1c857854-f381-4926-a2c6-7da1561ce1bb" name="Changes" comment="" />
-      <created>1646048960919</created>
+      <changelist id="3897b102-1fd5-4221-bafe-0aa7dfb0d2df" name="Changes" comment="" />
+      <created>1647424955788</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1646048960919</updated>
-      <workItem from="1646048962411" duration="14116000" />
-      <workItem from="1646063793014" duration="793000" />
-      <workItem from="1646120042385" duration="1351000" />
-      <workItem from="1646130171556" duration="3835000" />
-      <workItem from="1646134113190" duration="7374000" />
-      <workItem from="1646143394033" duration="4636000" />
-      <workItem from="1646214165364" duration="8399000" />
-      <workItem from="1646222781188" duration="10650000" />
-      <workItem from="1646300048341" duration="15265000" />
-      <workItem from="1646386967048" duration="15788000" />
-      <workItem from="1646521661579" duration="795000" />
-      <workItem from="1646522592325" duration="351000" />
-      <workItem from="1646638978056" duration="2277000" />
-      <workItem from="1646641987933" duration="2997000" />
-      <workItem from="1646645049867" duration="1767000" />
-      <workItem from="1646679646975" duration="2393000" />
-      <workItem from="1646746475841" duration="2450000" />
-      <workItem from="1646819147395" duration="19456000" />
-      <workItem from="1646905741690" duration="16073000" />
-      <workItem from="1646992663040" duration="13012000" />
-      <workItem from="1647006069917" duration="7819000" />
-      <workItem from="1647251575523" duration="12943000" />
-      <workItem from="1647264868750" duration="2908000" />
-      <workItem from="1647337747906" duration="551000" />
-      <workItem from="1647338339310" duration="9298000" />
+      <updated>1647424955788</updated>
+      <workItem from="1647424960706" duration="5459000" />
+      <workItem from="1647430606600" duration="14271000" />
     </task>
     <servers />
   </component>

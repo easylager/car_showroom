@@ -10,7 +10,7 @@ class SupplierListRetrieveSerializer(serializers.ModelSerializer):
 class SupplierCreateUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Supplier
-        fields = ['name', 'foundation_year']
+        fields = ['name', 'foundation_year', 'cars']
 
 
 class SupplierDiscountListRetrieveSerializer(serializers.ModelSerializer):

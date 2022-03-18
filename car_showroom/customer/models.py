@@ -5,6 +5,7 @@ from django.core.validators import RegexValidator
 from core.models import abstract_models
 from car.models import Car
 from showroom.models import Showroom
+from core.models.abstract_models import AbstractOrder
 
 User = get_user_model()
 
@@ -20,6 +21,12 @@ class Customer(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class CustomerOrder(models.Model):
+    car = models.ForeignKey('car.Car', on_delete=models.CASCADE)
+    customer = models.ForeignKey('Customer', on_delete=models.CASCADE)
+    required_price = models.DecimalField(decimal_places=2, max_digits=5)
 
 
 class CustomerHistory(models.Model):
