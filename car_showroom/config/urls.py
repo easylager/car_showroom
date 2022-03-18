@@ -11,9 +11,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    path(r'', include('supplier.urls')),
-    path(r'', include('car.urls')),
-    path(r'', include('showroom.urls')),
-    path(r'', include('customer.urls')),
+    path(r'api/supplier/', include('supplier.urls')),
+    path(r'api/car/', include('car.urls')),
+    path(r'api/showroom/', include('showroom.urls')),
+    path(r'api/customer/', include('customer.urls')),
     path('__debug__/', include('debug_toolbar.urls'))
 ]

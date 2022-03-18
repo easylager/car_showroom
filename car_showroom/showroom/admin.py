@@ -14,7 +14,6 @@ class PersonAdmin(admin.ModelAdmin):
     list_display = ('name', 'location', 'features')
 
 
-
 @admin.register(Location)
 class PersonalAdmin(admin.ModelAdmin):
     list_filter = ('country',)

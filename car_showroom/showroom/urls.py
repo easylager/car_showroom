@@ -3,9 +3,9 @@ from showroom.views import ShowroomViewSet, LocationViewSet, ShowroomDiscountVie
 
 
 router = routers.DefaultRouter()
-router.register(r'api/showroom', ShowroomViewSet, basename='showroom')
-router.register(r'api/location', LocationViewSet, basename='location')
-router.register(r'api/showroom_discount', ShowroomDiscountViewSet, basename='showroom_discount')
+router.register(r'showroom', ShowroomViewSet, basename='showroom')
+router.register(r'location', LocationViewSet, basename='location')
+router.register(r'showroom_discount', ShowroomDiscountViewSet, basename='showroom_discount')
 
 
 urlpatterns = router.urls
