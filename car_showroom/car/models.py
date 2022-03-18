@@ -2,7 +2,6 @@ from django.db import models
 from core.enums.car import CarType
 
 
-
 class CarManufacturer(models.Model):
     name = models.CharField(max_length=100, unique=True)
 

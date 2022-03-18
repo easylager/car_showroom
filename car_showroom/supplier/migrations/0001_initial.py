@@ -29,18 +29,7 @@ class Migration(migrations.Migration):
                 'abstract': False,
             },
         ),
-        migrations.CreateModel(
-            name='SupplierHistory',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('price', models.DecimalField(decimal_places=2, max_digits=5)),
-                ('car', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='car.car')),
-                ('supplier', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='supplier.supplier')),
-            ],
-            options={
-                'abstract': False,
-            },
-        ),
+
         migrations.CreateModel(
             name='SupplierDiscount',
             fields=[

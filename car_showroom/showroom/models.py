@@ -1,5 +1,6 @@
 from django.db import models
 from django_countries.fields import CountryField
+from car.models import Car
 from core.models import abstract_models
 
 
@@ -12,7 +13,10 @@ class Location(models.Model):
         return f'{self.country}-{self.city}-{self.street}'
 
 
-class Showroom(models.Model):
+class Showroom(
+    abstract_models.IsActive,
+    abstract_models.CreatedAt,
+):
     name = models.CharField(max_length=80)
     location = models.ForeignKey('Location', on_delete=models.CASCADE)
     balance = models.DecimalField(decimal_places=2, max_digits=5)
@@ -29,5 +33,5 @@ class ShowroomDiscount(abstract_models.AbstractDiscount):
 
 
 class ShowroomHistory(abstract_models.AbstractHistory):
-    showroom = models.ForeignKey('Showroom', on_delete=models.CASCADE)
+    showroom = models.ForeignKey('showroom.Showroom', on_delete=models.CASCADE)
     supplier = models.ForeignKey('supplier.Supplier', on_delete=models.CASCADE)
