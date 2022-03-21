@@ -4,7 +4,7 @@ from showroom.models import Showroom
 from core.models import abstract_models
 
 
-class Supplier(abstract_models.IsActive, abstract_models.CreatedAt):
+class Supplier(models.Model):
     name = models.CharField(max_length=100)
     foundation_year = models.DateField()
     cars = models.ManyToManyField(Car, null=True, blank=True)

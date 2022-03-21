@@ -1,5 +1,5 @@
 from rest_framework import routers
-from customer.views import CustomerViewSet, UserViewSet
+from customer.views import CustomerViewSet, UserViewSet, CustomerOrderViewSet
 
 
 router = routers.SimpleRouter()

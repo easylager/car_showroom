@@ -1,5 +1,5 @@
 from rest_framework import viewsets, mixins
-from customer.models import Customer
+from customer.models import Customer, CustomerOrder
 from customer.serializers import CustomerSerializer, UserSerializer, CustomerOrderSerializer
 
 

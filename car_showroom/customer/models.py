@@ -25,7 +25,7 @@ class Customer(models.Model):
 
 class CustomerOrder(models.Model):
     car = models.ForeignKey('car.Car', on_delete=models.CASCADE)
-    customer = models.ForeignKey('Customer', on_delete=models.CASCADE)
+    #customer = models.ForeignKey('Customer', on_delete=models.CASCADE)
     required_price = models.DecimalField(decimal_places=2, max_digits=5)
 
 
