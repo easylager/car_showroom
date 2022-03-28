@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.core.validators import RegexValidator
 from core.models import abstract_models
 from car.models import Car
-from showroom.models import Showroom
+from showroom.models import Showroom, ShowroomCar
 from core.models.abstract_models import AbstractOrder
 
 User = get_user_model()
@@ -25,8 +25,28 @@ class Customer(models.Model):
 
 class CustomerOrder(models.Model):
     car = models.ForeignKey('car.Car', on_delete=models.CASCADE)
-    #customer = models.ForeignKey('Customer', on_delete=models.CASCADE)
-    required_price = models.DecimalField(decimal_places=2, max_digits=5)
+    customer = models.ForeignKey('Customer', on_delete=models.CASCADE)
+    price = models.DecimalField(decimal_places=2, max_digits=5)
+
+    #the property finds the cheapest car with required features taking into account current promotions
+    @property
+    def find_car(self):
+        try:
+            #searches for the cars with needed features
+            result_cars = ShowroomCar.objects.filter(
+                car=self.car,
+                )
+            #searches for the cheapest car from result_cars
+            result_car = sorted(result_cars,
+                                key=lambda t: t.discount_price)[0]
+            #check if result_car fits by price to this customer
+            if result_car.discount_price <= self.price:
+                return result_car
+        except IndexError:
+            return f'nothing was found'
+
+    def __str__(self):
+        return f'{self.customer}-{self.car}'
 
 
 class CustomerHistory(models.Model):
@@ -34,3 +54,6 @@ class CustomerHistory(models.Model):
     customer = models.ForeignKey('customer.Customer', on_delete=models.CASCADE)
     car = models.ForeignKey(Car, on_delete=models.CASCADE)
     showroom = models.ForeignKey(Showroom, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.car}-{self.price}'

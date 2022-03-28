@@ -1,4 +1,6 @@
-from rest_framework import viewsets, mixins
+from rest_framework import viewsets, mixins, status
+from rest_framework.response import Response
+from customer.tasks import customer_buys_car
 from customer.models import Customer, CustomerOrder
 from customer.serializers import CustomerSerializer, UserSerializer, CustomerOrderSerializer
 
@@ -28,3 +30,8 @@ class CustomerOrderViewSet(mixins.ListModelMixin,
                       viewsets.GenericViewSet):
     serializer_class = CustomerOrderSerializer
     queryset = CustomerOrder.objects.all()
+
+    #customer_buys_car is called here and finds car to just created customer order
+    def perform_create(self, serializer):
+        order = serializer.save()
+        customer_buys_car(order=order)

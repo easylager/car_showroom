@@ -19,3 +19,5 @@ class ShowroomFilter(filters.FilterSet):
 
     def color_filter(self, queryset, name, value):
         return queryset.filter(features__color__iexact=value)
+
+

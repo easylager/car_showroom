@@ -1,15 +1,11 @@
 from config.celery import app
-from celery.task import periodic_task, task
-
-from celery.schedules import crontab
 from showroom.models import Showroom, ShowroomOrder
 from supplier.models import Supplier
 
 
-#@periodic_task(run_every=(crontab(minute=('*/1'))), name='my_task')
-#@task(name='check_cars_task')
+#celery task in which each showroom finds and buys needed cars from suppliers according to the features
 @app.task
-def check_cars():
+def showroom_buy_car():
 
     for showroom in Showroom.objects.all():
         for supplier in Supplier.objects.all():
@@ -23,8 +19,5 @@ def check_cars():
 
 
 
-def make_offer(querydict):
-    if len(querydict) != 0:
-        for key, value in querydict.items():
-            ShowroomOrder.objects.create(showroom=key, cars=value)
+
 

@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'debug_toolbar',
     'rest_framework_simplejwt',
-    'django_filters'
+    'django_filters',
 
 
 ]
@@ -158,9 +158,13 @@ CELERY_RESULT_BACKEND = "redis://redis:6379"
 
 
 CELERY_BEAT_SCHEDULE = {
-    'first_task': {
-        'task': 'showroom.tasks.check_cars',
+    'showroom_buy_car': {
+        'task': 'showroom.tasks.showroom_buy_car',
         'schedule': 15.0,
+    },
+    'customer_buy_car': {
+        'task': 'customer.tasks.customers_buy_cars',
+        'schedule': 55.0,
     }
 }
 
