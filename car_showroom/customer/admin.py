@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .models import *
+from .models import Customer, CustomerHistory, CustomerOrder
 
-@admin.register(CustomerHistory)
+@admin.register(Customer, CustomerHistory, CustomerOrder)
 class PersonAdmin(admin.ModelAdmin):
     pass
 

@@ -1,13 +1,9 @@
-FROM python:3.9-alpine
+FROM python:3.8.3-alpine
 ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 WORKDIR /code
-RUN pip install --upgrade pip
+COPY requirements.txt /code/
 RUN apk update \
     && apk add postgresql-dev gcc python3-dev musl-dev
-COPY Pipfile* /code/
-
-RUN pip install pipenv && pipenv install --deploy --system
-
+RUN pip install -r requirements.txt
 COPY . /code/
-
-CMD ./entrypoint.sh

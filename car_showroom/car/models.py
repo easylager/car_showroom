@@ -1,6 +1,4 @@
 from django.db import models
-from core.enums.car import CarType
-
 
 
 class CarManufacturer(models.Model):
@@ -11,8 +9,13 @@ class CarManufacturer(models.Model):
 
 
 class Car(models.Model):
+    CAR_TYPE_CHOICES = [
+        ('Sedan', 'Sedan'),
+        ('Coupe', 'Coupe'),
+        ('Crossover', 'Crossover'),
+    ]
     manufacturer = models.ForeignKey(CarManufacturer, on_delete=models.CASCADE)
-    car_type = models.CharField(max_length=100, choices=CarType.choices())
+    car_type = models.CharField(max_length=100, choices=CAR_TYPE_CHOICES)
     model = models.CharField(max_length=100, unique=True)
     description = models.CharField(max_length=200, null=True)
     features = models.JSONField()
