@@ -31,7 +31,3 @@ class CustomerOrderViewSet(mixins.ListModelMixin,
     serializer_class = CustomerOrderSerializer
     queryset = CustomerOrder.objects.all()
 
-    #customer_buys_car is called here and finds car to just created customer order
-    def perform_create(self, serializer):
-        order = serializer.save()
-        customer_buys_car(order=order)
