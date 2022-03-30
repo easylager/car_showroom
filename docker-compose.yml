@@ -35,6 +35,7 @@ services:
         - db
         - redis
         - web
+
   celery-beat:
       build: ./car_showroom
       command: celery -A config beat -l info

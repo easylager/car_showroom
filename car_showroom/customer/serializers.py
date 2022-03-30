@@ -1,5 +1,8 @@
 from rest_framework import serializers
 from customer.models import Customer, CustomerOrder, User
+from django.contrib.auth import authenticate
+from djoser.serializers import TokenCreateSerializer
+from djoser.conf import settings
 
 
 class CustomerSerializer(serializers.ModelSerializer):
@@ -14,8 +17,31 @@ class CustomerOrderSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+
 class UserSerializer(serializers.ModelSerializer):
+    password = serializers.CharField(
+        max_length=65, min_length=8, write_only=True)
+    email = serializers.EmailField(max_length=255, min_length=4)
+    first_name = serializers.CharField(max_length=255, min_length=2)
+    last_name = serializers.CharField(max_length=255, min_length=2)
+
     class Meta:
         model = User
-        fields = '__all__'
+        fields = ['username', 'first_name', 'last_name', 'email', 'password']
 
+    def validate(self, attrs):
+        if User.objects.filter(email=attrs['email']).exists():
+            raise serializers.ValidationError({
+                'email', {'Email is already in use'}
+            })
+        return super().validate(attrs)
+
+    def create(self, validated_data):
+        return User.objects.create_user(**validated_data)
+
+
+'''class UserSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = User
+        fields = '__all__'''

@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'rest_framework_simplejwt',
     'django_filters',
+    'djoser'
 
 
 ]
@@ -168,6 +169,13 @@ CELERY_BEAT_SCHEDULE = {
     }
 }
 
+
+
+EMAIL_USE_TLS=os.environ.get('EMAIL_USE')
+EMAIL_HOST=os.environ.get('EMAIL_HOST')
+EMAIL_PORT=os.environ.get('EMAIL_PORT')
+EMAIL_HOST_USER=os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD=os.environ.get('EMAIL_HOST_PASSWORD')
 
 if DEBUG:
     import os  # only if you haven't already imported this
