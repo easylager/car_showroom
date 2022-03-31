@@ -9,7 +9,6 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.urls import reverse
 
 
-
 class CustomerViewSet(mixins.ListModelMixin,
                       mixins.CreateModelMixin,
                       mixins.RetrieveModelMixin,
@@ -41,7 +40,7 @@ class RegisterViewSet(mixins.ListModelMixin,
         relativeLink = reverse('verify')
 
         absurl = 'http//' + current_site + relativeLink + '?token=' + str(token)
-        email_body = 'Hi ' +user.username+'Use link below to verify your email \n' + absurl
+        email_body = 'Hi ' + user.username + 'Use link below to verify your email \n' + absurl
         data = {
             'email_body': email_body,
             'to_email': user.email,
@@ -59,20 +58,19 @@ class VerifyEmailSet(GenericAPIView):
         pass
 
 
-class UserViewSet(mixins.ListModelMixin,
-                      mixins.CreateModelMixin,
-                      mixins.RetrieveModelMixin,
-                      mixins.UpdateModelMixin,
-                      viewsets.GenericViewSet):
+class UserViewSet(mixins.ListModedlMixin,
+                  mixins.CreateModelMixin,
+                  mixins.RetrieveModelMixin,
+                  mixins.UpdateModelMixin,
+                  viewsets.GenericViewSet):
     serializer_class = UserSerializer
     queryset = Customer.objects.all()
 
 
 class CustomerOrderViewSet(mixins.ListModelMixin,
-                      mixins.CreateModelMixin,
-                      mixins.RetrieveModelMixin,
-                      mixins.UpdateModelMixin,
-                      viewsets.GenericViewSet):
+                           mixins.CreateModelMixin,
+                           mixins.RetrieveModelMixin,
+                           mixins.UpdateModelMixin,
+                           viewsets.GenericViewSet):
     serializer_class = CustomerOrderSerializer
     queryset = CustomerOrder.objects.all()
-
