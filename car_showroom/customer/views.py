@@ -53,18 +53,18 @@ class RegisterViewSet(mixins.ListModelMixin,
         return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
 
-class VerifyEmailSet(GenericAPIView):
+'''class VerifyEmailSet(GenericAPIView):
     def get(self):
-        pass
+        pass'''
 
 
-class UserViewSet(mixins.ListModedlMixin,
+'''class UserViewSet(mixins.ListModedlMixin,
                   mixins.CreateModelMixin,
                   mixins.RetrieveModelMixin,
                   mixins.UpdateModelMixin,
                   viewsets.GenericViewSet):
     serializer_class = UserSerializer
-    queryset = Customer.objects.all()
+    queryset = Customer.objects.all()'''
 
 
 class CustomerOrderViewSet(mixins.ListModelMixin,

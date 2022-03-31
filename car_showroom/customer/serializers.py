@@ -1,8 +1,6 @@
 from rest_framework import serializers
 from customer.models import Customer, CustomerOrder, User
-from django.contrib.auth import authenticate
-from djoser.serializers import TokenCreateSerializer
-from djoser.conf import settings
+
 
 
 class CustomerSerializer(serializers.ModelSerializer):
