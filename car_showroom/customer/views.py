@@ -26,7 +26,7 @@ class RegisterViewSet(mixins.ListModelMixin,
     serializer_class = UserSerializer
     queryset = User.objects.all()
 
-    def create(self, request, *args, **kwargs):
+    '''def create(self, request, *args, **kwargs):
         user = request.data
         serializer = self.serializer_class(data=user)
         serializer.is_valid(raise_exception=True)
@@ -51,7 +51,7 @@ class RegisterViewSet(mixins.ListModelMixin,
         self.perform_create(serializer)
         headers = self.get_success_headers(serializer.data)
         return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
-
+'''
 
 '''class VerifyEmailSet(GenericAPIView):
     def get(self):

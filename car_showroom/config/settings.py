@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'rest_framework_simplejwt',
     'django_filters',
+    'djoser',
+    'rest_framework.authtoken'
 
 
 ]
@@ -123,7 +125,9 @@ AUTH_PASSWORD_VALIDATORS = [
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
         'rest_framework_simplejwt.authentication.JWTAuthentication',
+
     ),
     #'DEFAULT_FILTER_BACKENDS': (
         #'django_filters.rest_framework.DjangoFilterBackend'),
@@ -168,13 +172,20 @@ CELERY_BEAT_SCHEDULE = {
     }
 }
 
+DJOSER = {
+    'PASSWORD_RESET_CONFIRM_URL': '#/password/reset/confirm/{uid}/{token}',
+    'USERNAME_RESET_CONFIRM_URL': '#/username/reset/confirm/{uid}/{token}',
+    'ACTIVATION_URL': '#/activate/{uid}/{token}',
+    'SEND_ACTIVATION_EMAIL': True,
+    'SERIALIZERS': {},
+}
 
+EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS')
+EMAIL_HOST = os.environ.get('EMAIL_HOST')
+EMAIL_PORT = os.environ.get('EMAIL_PORT')
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
-EMAIL_USE_TLS=os.environ.get('EMAIL_USE')
-EMAIL_HOST=os.environ.get('EMAIL_HOST')
-EMAIL_PORT=os.environ.get('EMAIL_PORT')
-EMAIL_HOST_USER=os.environ.get('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD=os.environ.get('EMAIL_HOST_PASSWORD')
 
 if DEBUG:
     import os  # only if you haven't already imported this

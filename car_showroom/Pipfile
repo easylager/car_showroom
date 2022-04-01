@@ -14,6 +14,8 @@ django-debug-toolbar = "*"
 djangorestframework-simplejwt = "*"
 psycopg2-binary = "*"
 redis = "*"
+djoser = "*"
+django-rest-auth = "*"
 
 [dev-packages]
 

@@ -20,6 +20,7 @@ services:
       - 5432:5432
     env_file:
       - ./car_showroom/.env.dev
+
   redis:
     image: redis:alpine
 
@@ -44,6 +45,7 @@ services:
         - ./car_showroom/.env.dev
       depends_on:
         - redis
+
 
 
 
