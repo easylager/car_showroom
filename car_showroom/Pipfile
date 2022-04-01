@@ -4,10 +4,18 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django-countries = "==7.2.1"
-sqlparse = "==0.4.2"
-psycopg2-binary = "==2.9.3"
-Django = "==4.0.2"
+djangorestframework = "*"
+django = "*"
+celery = "*"
+django-countries = "*"
+django-property-filter = "*"
+django-queryable-properties = "*"
+django-debug-toolbar = "*"
+djangorestframework-simplejwt = "*"
+psycopg2-binary = "*"
+redis = "*"
+djoser = "*"
+django-rest-auth = "*"
 
 [dev-packages]
 

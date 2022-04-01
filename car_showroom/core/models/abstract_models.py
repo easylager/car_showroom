@@ -22,6 +22,12 @@ class UpdatedAt(models.Model):
     class Meta:
         abstract = True
 
+class AbstractOrder(models.Model):
+    cars = models.ManyToManyField('car.Car')
+
+    class Meta:
+        abstract = True
+
 
 class AbstractDiscount(models.Model):
     name = models.CharField(max_length=100)
